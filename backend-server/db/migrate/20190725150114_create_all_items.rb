@@ -1,12 +1,10 @@
-class CreateFavorites < ActiveRecord::Migration[5.2]
+class CreateAllItems < ActiveRecord::Migration[5.2]
   def change
-    create_table :favorites do |t|
-      t.integer :user_id
+    create_table :all_items do |t|
       t.string :item_name
       t.integer :price
       t.string :image_url
       t.string :description
-      t.timestamps
     end
   end
 end
