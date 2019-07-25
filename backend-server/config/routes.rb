@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get '/allItems', to: "all_items#index"
 
   get '/cartItems/:username', to: "carts#myCart"
-  post '/allItems/:username/:itemId', to: "carts#create"
+  post '/addToCart/:username/:itemId', to: "carts#create"
   delete '/cartItems/:username/:itemId', to: "carts#destroy"
 
   get '/favoriteItems/:username', to: "favorites#myFavorite"
-  post '/allItems/:username/:itemId', to: "favorites#create"
+  post '/addToFavorites/:username/:itemId', to: "favorites#create"
   delete '/favoriteItems/:username/:itemId', to: "favorites#destroy"
 end
