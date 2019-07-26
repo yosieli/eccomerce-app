@@ -19,7 +19,7 @@ AllItem.create(item_name: "Mouse", price: 34, image_url: "https://banner2.kisspn
 AllItem.create(item_name: "Soccer Ball", price: 25, image_url: "https://www.pinclipart.com/picdir/middle/1-11815_printable-picture-of-a-soccer-ball-clipart-soccer.png", description: "Rolls")
 AllItem.create(item_name: "Basketball Ball", price: 26, image_url: "https://www.pinclipart.com/picdir/middle/192-1923469_basketball-ball-png-clip-art-image-transparent-basketball.png", description: "Coincidently also Rolls")
 AllItem.create(item_name: "Tennis Ball", price: 3, image_url: "https://encrypted-tbn0.gstatic.com/imagtbn:ANd9GcRAVhlzymdqmTe_lkBvSLoyZXuCgYsxru78BkaMOKgIs_Sc7NSz", description: "Might Roll")
-AllItem.create(item_name: "Spiderman Ps4", price: 59, image_url: "https://www.pngfind.com/pngs/m/22-220713_download-free-high-quality-spiderman-png-transparent-spider.png", description: "Spiderman, Spiderman, does whatever a spider can
+spiderman = AllItem.create(item_name: "Spiderman Ps4", price: 59, image_url: "https://www.pngfind.com/pngs/m/22-220713_download-free-high-quality-spiderman-png-transparent-spider.png", description: "Spiderman, Spiderman, does whatever a spider can
     Spins a web any size, catches thieves just like flies
     Look out, here comes the Spiderman
     Is he strong? Listen bud, he's got radioactive blood
@@ -46,10 +46,10 @@ AllItem.create(item_name: "Pencils", price: 5, image_url: "hhttps://png.pngtree.
 hk72 = User.create(username: "hk72", password:"1")
 hk73 = User.create(username: "hk73", password:"2")
 
-
 Cart.create(user_id: hk72.id, item_id: pepper.id  ,quantity: 1, item_name: pepper.item_name, price: pepper.price, image_url: pepper.image_url)
 Cart.create(user_id: hk73.id, item_id: car.id, quantity: 1, item_name: car.item_name , price: car.price, image_url: car.image_url)
 
 Favorite.create(user_id: hk72.id, item_id: pepper.id, item_name: pepper.item_name, price: pepper.price, image_url: pepper.image_url, description: pepper.description)
+Favorite.create(user_id: hk72.id, item_id: spiderman.id, item_name: spiderman.item_name, price: spiderman.price, image_url: spiderman.image_url, description: spiderman.description)
 Favorite.create(user_id: hk73.id, item_id: car.id, item_name: car.item_name, price: car.price, image_url: car.image_url, description: car.description)
 puts "We seeded"
