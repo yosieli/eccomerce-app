@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
+  resources :favorites
 
   get '/allItems', to: "all_items#index"
 
@@ -10,4 +12,8 @@ Rails.application.routes.draw do
   get '/favoriteItems/:username', to: "favorites#myFavorite"
   post '/addToFavorites/:username/:itemId', to: "favorites#create"
   delete '/favoriteItems/:username/:itemId', to: "favorites#destroy"
+
+  post '/login', to: 'users#authenticate'
+
+
 end
