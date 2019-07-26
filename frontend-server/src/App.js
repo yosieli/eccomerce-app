@@ -8,7 +8,8 @@ import './App.css';
  export default class App extends React.Component {
      state={
        items:[],
-       cart:[]
+       cart:[],
+       total:0
      }
 
      componentDidMount(){
@@ -44,7 +45,7 @@ import './App.css';
       //render cartlist
       <div>
         <Nav cart={this.state.cart}/>
-        <CartList items={this.state.items}  />
+        <CartList items={this.state.items}  total={this.state.total} />
       </div>
 
      

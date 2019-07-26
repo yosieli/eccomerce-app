@@ -1,5 +1,5 @@
 import React from 'react'
-export default  class Details  extends React.Component {
+export default  class ShowDetails  extends React.Component {
 
     render(){
         
