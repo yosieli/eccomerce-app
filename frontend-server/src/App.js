@@ -4,18 +4,29 @@ import CartList from './components/CartList.js'
 import Nav from './components/Nav'
 //import data from './components/data.js'
 import './App.css';
+
 import {Favorites} from './favorites.js'
 import Login from './components/Login'
 
-<<<<<<< HEAD
+import Signin from './components/Signin'
+
+
+
 function App() {
   return (
-    <div >
-      <Favorites />
+
+    
       
-    </div>
+    <div className="App">
+      <header className="App-header fix" >
+        <Signin />
+        <Favorites />
+      </header>
+
+      
+    
   );
-=======
+
  export default class App extends React.Component {
      state={
        items:[],
@@ -65,7 +76,7 @@ function App() {
 
   }
   
->>>>>>> 32c30066c6ba18ce414c9faf9f19c4529e036803
+
 }
 
 
