@@ -1,5 +1,7 @@
 class CartsController < ApplicationController 
 
+    skip_before_action :define_current_user, only: [:myCart, :create, :destroy]
+
     def myCart
         user = User.find_by_username(params[:username])
         cart = Cart.where(user_id: user.id)
