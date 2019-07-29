@@ -7,15 +7,6 @@ import './App.css';
 import {Favorites} from './favorites.js'
 import Login from './components/Login'
 
-<<<<<<< HEAD
-function App() {
-  return (
-    <div >
-      <Favorites />
-      
-    </div>
-  );
-=======
  export default class App extends React.Component {
      state={
        items:[],
@@ -55,8 +46,7 @@ function App() {
 
       //render cartlist
       <div>
-        <Nav cart={this.state.cart}/>
-        <CartList items={this.state.items}  total={this.state.total} />
+        <Favorites/>
       </div>
 
      
@@ -65,7 +55,6 @@ function App() {
 
   }
   
->>>>>>> 32c30066c6ba18ce414c9faf9f19c4529e036803
 }
 
 

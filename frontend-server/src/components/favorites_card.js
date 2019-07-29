@@ -1,57 +1,28 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-const FavoritesCard = (props) => {
-    console.log(props, "in fav card")
-    return(
-        // <div>
-        //     <div style = {{height: '5rem'}}>
 
-        //     </div>
-        //     <Row>
-                <Col xs={4}>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={props.item.image_url} />
-                        <Card.Body>
-                            <Card.Title>{props.item.item_name}</Card.Title>
-                            <Card.Text>
-                                {props.item.description}
-                                {props.item.price}
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                // <Col>
-                //     <Card style={{ width: '18rem' }}>
-                //         <Card.Img variant="top" src={props.item.image_url} />
-                //         <Card.Body>
-                //             <Card.Title>{props.item.item_name}</Card.Title>
-                //             <Card.Text>
-                //                 {props.item.description}
-                //                 {props.item.price}
-                //             </Card.Text>
-                //             <Button variant="primary">Go somewhere</Button>
-                //         </Card.Body>
-                //     </Card>
-                // </Col>
-                // <Col>
-                //     <Card style={{ width: '18rem' }}>
-                //         <Card.Img variant="top" src={props.item.image_url} />
-                //         <Card.Body>
-                //             <Card.Title>{props.item.item_name}</Card.Title>
-                //             <Card.Text>
-                //                 {props.item.description}
-                //                 {props.item.price}
-                //             </Card.Text>
-                //             <Button variant="primary">Go somewhere</Button>
-                //         </Card.Body>
-                //     </Card>
-                // </Col>
-        //     </Row>
-        // </div>
-    )
+class FavoritesCard extends React.Component{
+    state = {
+        front: true
+    }
+    render () {
+        return(
+            <Col xs={4}>
+                <Card style={{ width: '18rem' }}>
+                    {this.state.front ? <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}} /> : null}
+                    <Card.Body>
+                        <Card.Title>{this.props.item.item_name}</Card.Title>
+                        <Card.Text>
+                            {this.state.front ? this.props.item.price : this.props.item.description}
+                        </Card.Text>
+                            {this.state.front ? <Button onClick = {() => this.setState({front: !this.state.front})} variant="primary" style = {{marginBottom: '10px' }}>View Description</Button> : <Button onClick = {() => this.setState({front: !this.state.front})} variant="primary" style = {{marginRight: '5px'}}>Back</Button>} 
+                        <Button onClick = {() => console.log("click")} variant="primary">Add to Cart</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
+        )
+    }  
 }
 export {FavoritesCard}
