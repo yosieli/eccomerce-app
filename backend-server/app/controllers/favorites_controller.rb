@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-    skip_before_action :define_current_user, only: [ :myFavorite]
+    # skip_before_action :define_current_user, only: [ :myFavorite]
  
     def myFavorite
         user = User.find_by_username(params[:username])

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
     attr_reader :current_user
 
-    before_action :define_current_user
+    # before_action :define_current_user
     #api keys in rails
     def define_current_user
         begin 
