@@ -6,6 +6,7 @@ import './App.css';
 
 import {Favorites} from './components/favorites.js'
 import {Browse} from './components/Browse.js'
+
 import Signin from './components/Signin.js'
 import { BrowserRouter } from 'react-router-dom'
 import { Route } from 'react-router'
@@ -22,7 +23,9 @@ import CheckOutForm from './components/CheckOutForm'
   render(){
 
     return (
+
       <div>
+
         <BrowserRouter >
           <Route exact path = '/sign-in' component = {Signin}/>
           <Route exact path = '/browse' component = {Browse}/>
@@ -32,4 +35,8 @@ import CheckOutForm from './components/CheckOutForm'
       </div>
       )
   } 
+
+
+      
+
 }
