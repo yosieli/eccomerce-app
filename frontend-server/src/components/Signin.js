@@ -11,9 +11,8 @@ export default class Signin extends React.Component{
 
     render(){
         return(
-            <div>
+            <div >
                 <SigninPage/>
-                
             </div>
         )
     }

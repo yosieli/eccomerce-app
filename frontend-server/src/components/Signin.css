@@ -1,3 +1,14 @@
+.logo-s {
+  /* float:right; */
+  /* margin-top: 0%; */
+  margin-left: -5%;
+  padding: 15px;
+}
+
+.back {
+  background-color: rgba(167, 95, 95, 0.3);
+}
+
 #video-background {
       position: absolute;
       right: 0; 
@@ -14,7 +25,9 @@
     padding: 8% 0 0;
     margin: auto;
   }
+
   .form {
+    /* margin-top: 50%; */
     position: relative;
     z-index: 1;
     background: #FFFFFF;
@@ -39,7 +52,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: red;
+    background: rgba(166, 184, 54, 1);
     width: 100%;
     border: 0;
     padding: 15px;
@@ -51,7 +64,7 @@
   }
 
   .form button:hover,.form button:active,.form button:focus {
-    background: rgb(89, 92, 240);
+    background: rgb(237,27,35);
   }
   .form .message {
     margin: 15px 0 0;
@@ -73,7 +86,7 @@
   }
   .container:before, .container:after {
     content: "";
-    display: block;
+    /* display: block; */
     clear: both;
   }
   .container .info {

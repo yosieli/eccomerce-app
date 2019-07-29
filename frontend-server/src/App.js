@@ -8,6 +8,7 @@ import './App.css';
 import {Favorites} from './components/favorites.js'
 import {Browse} from './components/Browse.js'
 import Login from './components/Login'
+
 import CheckOutForm from './components/CheckOutForm'
  export default class App extends React.Component {
      state={
@@ -36,4 +37,4 @@ import CheckOutForm from './components/CheckOutForm'
   
 }
 
-
+export default App
