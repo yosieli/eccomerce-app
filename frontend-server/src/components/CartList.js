@@ -1,11 +1,13 @@
 import React from 'react'
 import CartItems from './CartItems'
 import { Button } from 'react-bootstrap'
+import CheckOutForm from './CheckOutForm'
 //import ShowDetails from './ShowDetails'
 export default  class Cart  extends React.Component {
     state = {
         myItems: [],
         total:0,
+        buyItems: false
        
     }
 
@@ -23,7 +25,8 @@ export default  class Cart  extends React.Component {
         let counter =0
         this.state.myItems.forEach(item=>counter += parseInt(item.price))
         this.setState({
-            total:counter
+            total:counter,
+            
         })
     }
 
@@ -37,15 +40,14 @@ export default  class Cart  extends React.Component {
              total: this.state.total-(item.quantity * item.price)
          })
     }
+   
+    handleSubmit = ()=>{
+        console.log("h")
+        this.setState({
+            buyItems: !this.state.buyItems
+        })
 
-         
-    // buyAllItems = ()=>{
-    //     this.setState({
-    //         myItems:[],
-    //         total:0
-    //     })
-    //     alert('you bought the item')
-    // }
+    }
 
 
     buySpecificItem = (item)=>{
@@ -54,9 +56,10 @@ export default  class Cart  extends React.Component {
         })
      this.setState({
          myItems: myItems,
-         total: this.state.total-(item.quantity * item.price)
+         total: this.state.total-(item.quantity * item.price),
+         buyItems: !this.state.buyItems
      })
-     alert('you bought the item')
+
     }
 
 
@@ -71,10 +74,19 @@ export default  class Cart  extends React.Component {
 
     render(){
      let items = this.state.myItems
-    
-     return(
-        
-        <div>
+     let shown
+     console.log(this.state.buyItems)
+     if(this.state.buyItems){
+        shown = (  <div className="app-container">
+                        <div className="row">
+                            <div className="col no-gutters">
+                                <CheckOutForm  handleSubmit={this.handleSubmit}/>
+                            </div>
+                        </div>
+                    </div>)
+    }
+    else{
+        shown = (<div>
             <h3> My Cart items</h3>
             <h3><Button onClick={() => this.clearCart(this.clearCart)}  >Clear all</Button> </h3> 
             
@@ -89,7 +101,25 @@ export default  class Cart  extends React.Component {
             })}
                 <p>Total:${this.state.total} </p>
 
-         </div>
+         </div>)
+
+    }
+    
+     return(
+        shown
+        
+
+
+
+
+
+
+
+
+
+
+
+  
 
         )
     }
