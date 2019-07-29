@@ -40,15 +40,14 @@ export default  class Cart  extends React.Component {
              total: this.state.total-(item.quantity * item.price)
          })
     }
+   
+    handleSubmit = ()=>{
+        console.log("h")
+        this.setState({
+            buyItems: !this.state.buyItems
+        })
 
-         
-    // buyAllItems = ()=>{
-    //     this.setState({
-    //         myItems:[],
-    //         total:0
-    //     })
-    //     alert('you bought the item')
-    // }
+    }
 
 
     buySpecificItem = (item)=>{
@@ -81,7 +80,7 @@ export default  class Cart  extends React.Component {
         shown = (  <div className="app-container">
                         <div className="row">
                             <div className="col no-gutters">
-                                <CheckOutForm />
+                                <CheckOutForm  handleSubmit={this.handleSubmit}/>
                             </div>
                         </div>
                     </div>)
