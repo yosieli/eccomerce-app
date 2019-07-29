@@ -1,4 +1,7 @@
-class FavoritesController < ApplicationController 
+class FavoritesController < ApplicationController
+
+    # skip_before_action :define_current_user, only: [ :myFavorite]
+ 
     def myFavorite
         user = User.find_by_username(params[:username])
         favorite = Favorite.where(user_id: user.id)
@@ -25,6 +28,8 @@ class FavoritesController < ApplicationController
         unwantedItem = Favorite.where(user_id: user.id, item_id: item.id)
         Favorite.destroy(unwantedItem.ids)
     end
+
+    
 end
 
 
