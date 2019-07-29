@@ -6,7 +6,7 @@ import Nav from './components/Nav'
 import './App.css';
 import {Favorites} from './favorites.js'
 import Login from './components/Login'
-
+import CheckOutForm from './components/CheckOutForm'
  export default class App extends React.Component {
      state={
        items:[],
@@ -14,16 +14,7 @@ import Login from './components/Login'
        total:0
      }
 
-    //  componentDidMount(){
-    //    fetch('http://localhost:3000/items')
-    //    .then(res => res.json())
-    //    .then(result=> {
-    //      this.setState({
-    //        items:result
-    //      })
-    //    })
-    //  }
-
+   
   render(){
 
     return (
@@ -48,6 +39,7 @@ import Login from './components/Login'
       <div>
         <Nav cart={this.state.cart}/>
         <CartList items={this.state.items}  total={this.state.total} />
+        
       </div>
 
      
