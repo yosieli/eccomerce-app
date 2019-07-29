@@ -9,14 +9,15 @@ class BrowseCards extends React.Component{
         let card
         if(true){
             card = (<Col xs={4}>
-                    <Card style={{ width: '18rem','border-radius': '7px', margin: '10px'}} onClick = {() => this.props.handleShow(this.props.item)}>
+                    <Card style={{ width: '18rem','border-radius': '7px', margin: '10px'}}>
                         <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}}/>
                         <Card.Body >
                             <Card.Title>{this.props.item.item_name}</Card.Title>
                             <Card.Text>
                                 {"Price: $" + this.props.item.price}
                             </Card.Text>
-                            <Button onClick = {() => console.log("click")} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
+                            <Button onClick = {() => this.props.handleShow(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>View Description</Button>
+                            <Button onClick = {() => this.props.addToCart(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
                             <Button onClick = {() => console.log("click")} variant="primary">Add to Favorites</Button>
                         </Card.Body>
                     </Card>

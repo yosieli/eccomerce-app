@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    # skip_before_action :define_current_user, only: [ :authenticate, :create]
+    skip_before_action :define_current_user, only: [ :authenticate, :create]
 
     def create
         user = User.create(user_params)
@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     end
 
     def authenticate
-        user=User.find_by(username: params[:username])
-        if user !=nil && user.authenticate(params[:password])
-            render json: user, methods: [:auth_token]
+        @user=User.find_by(username: params[:username])
+        if @user !=nil && @user.authenticate(params[:password])
+            render json: @user, methods: [:auth_token]
         else
             render json: {error:true,message: 'Login Failed'}
         end

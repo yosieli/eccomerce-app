@@ -15,9 +15,9 @@ export default class Signin extends React.Component{
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3000/X',{
+    fetch('http://localhost:3000/login',{
       method: 'POST',
       headers:{
         'Content-Type':'application/json'
@@ -27,8 +27,12 @@ export default class Signin extends React.Component{
         password:this.state.password
       })
     }).then(res=>res.json())
-    .then(user=>
-      localStorage.setItem('token',user.auth_token))
+    .then(user=> {
+      this.props.history.push('/browse')
+      localStorage.setItem('token',user.auth_token)
+      localStorage.setItem('user',user.id)
+    })
+      
   }
 
   render(){
@@ -51,7 +55,7 @@ export default class Signin extends React.Component{
           <form onSubmit={this.handleSubmit} className="login-form">
           <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
            <input name = "password" onChange={this.handleChange} type="password" placeholder="password"/>
-           <button style={{"border-radius": "7px"}}onClick={this.handleSubmit}>login</button>
+           <button style={{"border-radius": "7px"}}onClick={(e) => this.handleSubmit(e)}>login</button>
             <p className="message">Not registered? <a href="#">Create an account</a></p>
           </form>
         </div>

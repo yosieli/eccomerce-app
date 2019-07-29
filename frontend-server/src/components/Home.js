@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
 
+
 import './Home.css'
 
 
@@ -26,12 +27,12 @@ export default class Home extends React.Component{
                     />
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Nav className="mr-auto">
-                            <Nav.Link href="#upload">Upload</Nav.Link>
-                            <Nav.Link href="#browse">Browse</Nav.Link>
-                            <Nav.Link href="#favorites">Favorites</Nav.Link>
+                            <Nav.Link onClick={() => console.log("h")}>Upload</Nav.Link>
+                            <Nav.Link href = '/browse'>Browse</Nav.Link>
+                            <Nav.Link href = '/myFavorites'>Favorites</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Cart</Nav.Link>
+                            <Nav.Link href = '/myCart'>Cart</Nav.Link>
                             <Nav.Link href="#deets">Sign-Out</Nav.Link>
                         </Nav>
                 </Navbar>

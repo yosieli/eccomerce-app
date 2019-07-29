@@ -7,7 +7,13 @@ class Favorites extends React.Component {
         myFavorites: [],
     }
     componentDidMount() {
-        fetch('http://localhost:3000/favoriteItems/hk72')
+        fetch(`http://localhost:3000/favoriteItems/${localStorage.getItem('user')}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         .then(res => res.json())
         .then(data => {
             console.log(data)

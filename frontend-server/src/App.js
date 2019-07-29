@@ -1,13 +1,14 @@
 import React from 'react';
 //import logo from './logo.svg';
 import CartList from './components/CartList.js'
-import Nav from './components/Nav'
 //import data from './components/data.js'
 import './App.css';
 
 import {Favorites} from './components/favorites.js'
 import {Browse} from './components/Browse.js'
-import Login from './components/Login'
+import Signin from './components/Signin.js'
+import { BrowserRouter } from 'react-router-dom'
+import { Route } from 'react-router'
 
 import CheckOutForm from './components/CheckOutForm'
  export default class App extends React.Component {
@@ -22,19 +23,13 @@ import CheckOutForm from './components/CheckOutForm'
 
     return (
       <div>
-
-        <Nav cart={this.state.cart}/>
-        <CartList items={this.state.items}  total={this.state.total} />
-        
+        <BrowserRouter >
+          <Route exact path = '/sign-in' component = {Signin}/>
+          <Route exact path = '/browse' component = {Browse}/>
+          <Route exact path = '/myCart' component = {CartList}/>
+          <Route exact path = '/myFavorites' component = {Favorites}/>
+        </BrowserRouter> 
       </div>
-
-     
-               
-
       )
-
-  }
-  
+  } 
 }
-
-export default App
