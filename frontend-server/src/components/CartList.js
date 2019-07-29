@@ -83,7 +83,8 @@ export default  class Cart  extends React.Component {
                                 <CheckOutForm  handleSubmit={this.handleSubmit}/>
                             </div>
                         </div>
-                    </div>)
+                    </div>
+                )
     }
     else{
         shown = (<div>

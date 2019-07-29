@@ -6,8 +6,7 @@ import Nav from './components/Nav'
 import './App.css';
 import {Favorites} from './favorites.js'
 import Login from './components/Login'
-import CheckOutForm from './components/CheckOutForm'
- export default class App extends React.Component {
+export default class App extends React.Component {
      state={
        items:[],
        cart:[],
@@ -18,33 +17,13 @@ import CheckOutForm from './components/CheckOutForm'
   render(){
 
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
-
-      //render cartlist
+      
       <div>
         <Nav cart={this.state.cart}/>
-        <CartList items={this.state.items}  total={this.state.total} />
-        
+        <CartList items={this.state.items}  total={this.state.total} />  
       </div>
 
-     
-               
-      )
+    )
 
   }
   
