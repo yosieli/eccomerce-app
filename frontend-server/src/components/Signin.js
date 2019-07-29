@@ -8,12 +8,12 @@ export default class Signin extends React.Component{
     state = {
         loggedIn: false
     }
+    
 
     render(){
         return(
-            <div>
+            <div >
                 <SigninPage/>
-                
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import Col from 'react-bootstrap/Col'
+// import Col from 'react-bootstrap/Col'
 
 class Cards extends React.Component{
     state = {
@@ -9,7 +9,7 @@ class Cards extends React.Component{
     }
     render () {
         return(
-            <Col xs={4}>
+            // <Col xs={4}>
                 <Card style={{ width: '18rem','border-radius': '7px'}}>
                     {this.state.front ? <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}} /> : null}
                     <Card.Body >
@@ -21,7 +21,7 @@ class Cards extends React.Component{
                         <Button onClick = {() => console.log("click")} variant="primary">Add to Cart</Button>
                     </Card.Body>
                 </Card>
-            </Col>
+            // </Col>
         )
     }  
 }

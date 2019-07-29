@@ -36,7 +36,7 @@ export default  class Cart  extends React.Component {
                 </div >
                 {/* <p>total amount:{this.props.totalAmount}</p>  */}
                 
-                    <Button   variant="outline-success"    size="lg" onClick={()=>this.props.removeItem(item)}    > Remove Item</Button>
+                    <Button   variant="outline-success"  onClick={()=>this.props.removeItem(item)}    > Remove Item</Button>
                     <Button onClick={()=>this.props.byeItems(item)} > Bye Item</Button>
             
                 <br></br>
