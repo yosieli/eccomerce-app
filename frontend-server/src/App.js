@@ -10,73 +10,26 @@ import Login from './components/Login'
 
 import Signin from './components/Signin'
 
+import Home from './components/Home'
 
+import './components/Home.css'
 
 function App() {
   return (
 
     
       
-    <div className="App">
-      <header className="App-header fix" >
-        <Signin />
-        <Favorites />
+    <div className="App "   >
+      <header  >
+        {/* <Signin /> */}
+        {/* <Favorites /> */}
+        <Home />
       </header>
+      </div>
 
       
     
   );
-
- export default class App extends React.Component {
-     state={
-       items:[],
-       cart:[],
-       total:0
-     }
-
-     componentDidMount(){
-       fetch('http://localhost:3000/items')
-       .then(res => res.json())
-       .then(result=> {
-         this.setState({
-           items:result
-         })
-       })
-     }
-
-  render(){
-
-    return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
-
-      //render cartlist
-      <div>
-        <Nav cart={this.state.cart}/>
-        <CartList items={this.state.items}  total={this.state.total} />
-      </div>
-
-     
-               
-      )
-
-  }
-  
-
 }
 
-
+export default App
