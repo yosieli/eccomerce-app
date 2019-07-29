@@ -10,7 +10,13 @@ class Browse extends React.Component {
         chosenItem: {}
     }
     componentDidMount() {
-        fetch('http://localhost:3000/allItems')
+        fetch('http://localhost:3000/allItems', {
+            method: "GET",
+            headers :{
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         .then(res => res.json())
         .then(data => {
             console.log(data)
