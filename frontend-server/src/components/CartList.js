@@ -8,14 +8,6 @@ export default  class Cart  extends React.Component {
        
     }
 
-    
-    showDetails = () => {
-        this.setState({
-            showDetails: !this.show.showDetails
-        })
-        console.log('clicked')
-    }
-    
 
     componentDidMount(){
      fetch(`http://localhost:3000/cartItems/hk72`,{})
@@ -34,72 +26,70 @@ export default  class Cart  extends React.Component {
         })
     }
 
-   
 
-
-    // removeItem = () =>{
-    //     fetch('http://localhost:3000/cartItems/hk72/1',{
-    //         method: "DELETE",
-    //         headers:{
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then(res=>
-    //         this.fetchCartItems)
-        
-    // }
-
-    // removeItem = (itemId) => {
-    //     console.log('this is ',itemId)
-    //     const items = this.state.myItems.filter(item => item.id !== itemId)
-      
-    //     this.setState({ items })
-    //   }
-
-
-
-    removeItem = (itemId)=>{
-        console.log(itemId)
-        this.setState({
-            item: this.state.myItems.filter(item => item.id !== itemId)
-        })
+    removeItem = (item)=>{
+         let myItems = this.state.myItems.filter(items => {
+                return items.id !== item.id
+            })
+         this.setState({
+             myItems: myItems,
+             total: this.state.total-(item.quantity * item.price)
+         })
     }
+
          
     buyAllItems = ()=>{
         this.setState({
-            myItems:[]
+            myItems:[],
+            total:0
         })
+        alert('you bought the item')
     }
+
+
+    buySpecificItem = (item)=>{
+        let myItems = this.state.myItems.filter(items => {
+            return items.id !== item.id
+        })
+     this.setState({
+         myItems: myItems,
+         total: this.state.total-(item.quantity * item.price)
+     })
+     alert('you bought the item')
+    }
+
 
     clearCart = () =>{
         this.setState({
-            myItems:[]
+            myItems:[],
+            total:0
         })
        
     } 
 
+
     render(){
      let items = this.state.myItems
     
-    return(
+     return(
         
         <div>
         <h2>Cart items</h2>
-        <h3><button onClick={() => this.clearCart(this.clearCart)}>Clear all</button> </h3> 
+        <h3><button onClick={() => this.clearCart(this.clearCart)} >Clear all</button> </h3> 
         
 
         {items.map(item => {
             return(
               <div>
-              <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem}  /> 
+              <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
               {/* <ShowDetails show={this.show.showDetails}  showDetails={this.showDetails}/> */}
               </div> 
             )
-        })}
+    })}
 
        
 
          <p>Total:${this.state.total} </p>
-        <button >buy</button> 
 
         </div>
 
