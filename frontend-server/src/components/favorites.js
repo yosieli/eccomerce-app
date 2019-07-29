@@ -1,5 +1,5 @@
 import React from "react";
-import {FavoritesCard} from './components/favorites_card.js'
+import {Cards} from './Card.js'
 import Row from "react-bootstrap/Row";
 
 class Favorites extends React.Component {
@@ -22,7 +22,7 @@ class Favorites extends React.Component {
             <Row>
                 {this.state.myFavorites.map( (item, index) =>{
                     return (
-                            <FavoritesCard item = {item} />
+                            <Cards item = {item} />
                     )
                 })}
             </Row>

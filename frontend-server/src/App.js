@@ -5,7 +5,8 @@ import Nav from './components/Nav'
 //import data from './components/data.js'
 import './App.css';
 
-import {Favorites} from './favorites.js'
+import {Favorites} from './components/favorites.js'
+import {Browse} from './components/Browse.js'
 import Login from './components/Login'
 
  export default class App extends React.Component {
@@ -28,30 +29,9 @@ import Login from './components/Login'
   render(){
 
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
-
-      //render cartlist
       <div>
-        <Favorites/>
-      </div>
-
-     
-               
+        <Browse/>
+      </div>         
       )
 
   }
