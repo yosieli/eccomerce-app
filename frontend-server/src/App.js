@@ -16,15 +16,15 @@ import Login from './components/Login'
        total:0
      }
 
-     componentDidMount(){
-       fetch('http://localhost:3000/items')
-       .then(res => res.json())
-       .then(result=> {
-         this.setState({
-           items:result
-         })
-       })
-     }
+    //  componentDidMount(){
+    //    fetch('http://localhost:3000/items')
+    //    .then(res => res.json())
+    //    .then(result=> {
+    //      this.setState({
+    //        items:result
+    //      })
+    //    })
+    //  }
 
   render(){
 

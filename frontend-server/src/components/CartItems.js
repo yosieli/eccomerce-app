@@ -1,46 +1,55 @@
 import React from 'react'
-import Payment from './Payment.js'
+//import Payment from './Payment.js'
+import ShowDetails from './ShowDetails'
+import { Button } from 'react-bootstrap'
 export default  class Cart  extends React.Component {
 
-    handleClick = (id) => {
-      console.log(id)
-
+    state={
+        showDetails:false
     }
 
+    showDetails = () => {
+        console.log('clickedkhkjhjk')
+        this.setState({
+            showDetails: true
+        })
+       
+    }
+
+
     render(){
-      let total = this.props.total
+    //   let total = this.props.total
       let item = this.props.item  
       
-    return(
-      <div className="Item">
-        <div className="Item__img"
-           
-        >
-            <img
-                src={item.image_url}
-                alt=" Item" onClick={()=>this.props.showDetails(item.id)}
-            />
-        </div>
-        <div className="Item__details">
-            <div className="Item__cat">
-              <p>{item.item_name}</p>  
+        return(
+            <div>
+                <div >
+                <img src={item.image_url} alt=" Item"  onClick={this.ShowDetails}/>
+                {this.state.showDetails ? <ShowDetails name={item.item_name} price={item.price} description={item.description}  /> : null}
+                </div>
+            
+            <div >
+                <p>{item.item_name}</p>  
             </div>
-            <div className="BookItem__price-cart">
+                <div >
                 <p>${item.price}</p>
-            <div className="BootItem__description">
-               <p>total amount:{total}</p> 
-            </div>
-                <button  onClick={()=>this.props.byeItem(item.id)} > Buy Item</button>
-            </div>
-            <br></br>
-            <div className="BookItem__stock" style={{color: item.inStock >= 5 ? '#417505' : '#CE0814'}}>
-                {item.inStock} In Stock will display no of items in stock?
-            </div>
-            <br></br><br></br><br></br>
-        </div>
-      </div>
+                </div >
+                {/* <p>total amount:{this.props.totalAmount}</p>  */}
+                
+                    <Button   variant="outline-success"    size="lg" onClick={()=>this.props.removeItem(item)}    > Remove Item</Button>
+                    <Button onClick={()=>this.props.byeItems(item)} > Bye Item</Button>
+            
+                <br></br>
+                <br></br>
+                <div></div>
 
-    )
+                <br></br>
+                {/* <div className="BookItem__stock" style={{color: item.inStock >= 5 ? '#417505' : '#CE0814'}}>
+                    {item.inStock} In Stock will display no of items in stock?
+                </div> */}
+                
+            </div>
+        )
     }
 
 }
