@@ -1,5 +1,6 @@
 import React from 'react'
 import CartItems from './CartItems'
+import { Button } from 'react-bootstrap'
 //import ShowDetails from './ShowDetails'
 export default  class Cart  extends React.Component {
     state = {
@@ -38,13 +39,13 @@ export default  class Cart  extends React.Component {
     }
 
          
-    buyAllItems = ()=>{
-        this.setState({
-            myItems:[],
-            total:0
-        })
-        alert('you bought the item')
-    }
+    // buyAllItems = ()=>{
+    //     this.setState({
+    //         myItems:[],
+    //         total:0
+    //     })
+    //     alert('you bought the item')
+    // }
 
 
     buySpecificItem = (item)=>{
@@ -74,24 +75,21 @@ export default  class Cart  extends React.Component {
      return(
         
         <div>
-        <h2>Cart items</h2>
-        <h3><button onClick={() => this.clearCart(this.clearCart)} >Clear all</button> </h3> 
-        
+            <h3> My Cart items</h3>
+            <h3><Button onClick={() => this.clearCart(this.clearCart)}  >Clear all</Button> </h3> 
+            
 
-        {items.map(item => {
-            return(
-              <div>
-              <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
-              {/* <ShowDetails show={this.show.showDetails}  showDetails={this.showDetails}/> */}
-              </div> 
-            )
-    })}
+            {items.map(item => {
+                return(
+                <div>
+                <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
+                {/* <ShowDetails show={this.show.showDetails}  showDetails={this.showDetails}/> */}
+                </div> 
+                )
+            })}
+                <p>Total:${this.state.total} </p>
 
-       
-
-         <p>Total:${this.state.total} </p>
-
-        </div>
+         </div>
 
         )
     }
