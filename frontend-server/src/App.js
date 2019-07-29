@@ -1,7 +1,6 @@
 import React from 'react';
 //import logo from './logo.svg';
 import CartList from './components/CartList.js'
-import Nav from './components/Nav'
 //import data from './components/data.js'
 import './App.css';
 
@@ -27,6 +26,8 @@ import CheckOutForm from './components/CheckOutForm'
         <BrowserRouter >
           <Route exact path = '/sign-in' component = {Signin}/>
           <Route exact path = '/browse' component = {Browse}/>
+          <Route exact path = '/myCart' component = {CartList}/>
+          <Route exact path = '/myFavorites' component = {Favorites}/>
         </BrowserRouter> 
       </div>
       )

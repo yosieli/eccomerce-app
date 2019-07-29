@@ -13,15 +13,21 @@ export default  class Cart  extends React.Component {
 
 
     componentDidMount(){
-     fetch(`http://localhost:3000/cartItems/hk72`,{})
+     fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+         method: "GET",
+         headers: {
+             'Content-Type': 'application/json',
+             'Authorization': `Bearer ${localStorage.getItem('token')}`
+         }
+     })
      .then(res=>res.json())
      .then(result=>this.setState({
          myItems:result
-     })).then(this.byeItems)
+     })).then(this.buyItems)
     }
 
   
-    byeItems = ()=>{
+    buyItems = ()=>{
         let counter =0
         this.state.myItems.forEach(item=>counter += parseInt(item.price))
         this.setState({
@@ -104,23 +110,8 @@ export default  class Cart  extends React.Component {
          </div>)
 
     }
-    
      return(
         shown
-        
-
-
-
-
-
-
-
-
-
-
-
-  
-
         )
     }
 
