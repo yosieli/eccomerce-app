@@ -4,6 +4,7 @@ import CartList from './components/CartList.js'
 import Nav from './components/Nav'
 //import data from './components/data.js'
 import './App.css';
+
 import {Favorites} from './favorites.js'
 import Login from './components/Login'
 
