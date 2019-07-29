@@ -28,7 +28,7 @@ export default class Signin extends React.Component{
       })
     }).then(res=>res.json())
     .then(user=> {
-      this.props.history.push('/browse')
+      //this.props.history.push('/browse')
       localStorage.setItem('token',user.auth_token)
       localStorage.setItem('user',user.id)
     })

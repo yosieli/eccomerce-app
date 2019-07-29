@@ -2,7 +2,7 @@ import React from 'react'
 import CartItems from './CartItems'
 import { Button } from 'react-bootstrap'
 import CheckOutForm from './CheckOutForm'
-//import ShowDetails from './ShowDetails'
+import Row from "react-bootstrap/Row"
 export default  class Cart  extends React.Component {
     state = {
         myItems: [],
@@ -11,23 +11,22 @@ export default  class Cart  extends React.Component {
        
     }
 
-
     componentDidMount(){
-     fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
-         method: "GET",
-         headers: {
-             'Content-Type': 'application/json',
-             'Authorization': `Bearer ${localStorage.getItem('token')}`
-         }
-     })
-     .then(res=>res.json())
-     .then(result=>this.setState({
-         myItems:result
-     })).then(this.buyItems)
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(res=>res.json())
+        .then(result=>this.setState({
+            myItems:result
+        })).then(this.buyItems)
     }
 
   
-    buyItems = ()=>{
+    buyItems = () => {
         let counter =0
         this.state.myItems.forEach(item=>counter += parseInt(item.price))
         this.setState({
@@ -37,7 +36,7 @@ export default  class Cart  extends React.Component {
     }
 
 
-    removeItem = (item)=>{
+    removeItem = (item) => {
          let myItems = this.state.myItems.filter(items => {
                 return items.id !== item.id
             })
@@ -47,7 +46,7 @@ export default  class Cart  extends React.Component {
          })
     }
    
-    handleSubmit = ()=>{
+    handleSubmit = () => {
         console.log("h")
         this.setState({
             buyItems: !this.state.buyItems
@@ -56,7 +55,7 @@ export default  class Cart  extends React.Component {
     }
 
 
-    buySpecificItem = (item)=>{
+    buySpecificItem = (item) => {
         let myItems = this.state.myItems.filter(items => {
             return items.id !== item.id
         })
@@ -68,15 +67,13 @@ export default  class Cart  extends React.Component {
 
     }
 
-
-    clearCart = () =>{
+    clearCart = () => {
         this.setState({
             myItems:[],
             total:0
         })
        
     } 
-
 
     render(){
      let items = this.state.myItems
@@ -97,16 +94,17 @@ export default  class Cart  extends React.Component {
             <h3> My Cart items</h3>
             <h3><Button onClick={() => this.clearCart(this.clearCart)}  >Clear all</Button> </h3> 
             
-
-            {items.map(item => {
-                return(
-                <div>
-                <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
-                {/* <ShowDetails show={this.show.showDetails}  showDetails={this.showDetails}/> */}
-                </div> 
-                )
-            })}
-                <p>Total:${this.state.total} </p>
+            <Row>
+                {items.map(item => {
+                    return(
+                    <div>
+                        
+                    <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
+                    </div> 
+                    )
+                })}
+            </Row>
+                <h3>Total:${this.state.total} </h3>
 
          </div>)
 
