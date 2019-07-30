@@ -52,12 +52,30 @@ class Browse extends React.Component {
             })
         })
     }
+
+    addToFavorite = (item) => {
+        fetch(`http://localhost:3000/addToFavorites/${localStorage.getItem('user')}/${item.id}`,{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            },
+            body: JSON.stringify({
+                user_id: localStorage.getItem('user'),
+                item_id: item.id,
+                item_name: item.item_name,
+                description: item.description,
+                price: item.price,
+                image_url: item.image_url
+            })
+        })
+    }
     render(){
         return(
             <div>
             <Nav/>
-            <Row style= {{height: '100vh'}}>
-                {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow}/>}
+            <Row>
+                {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow}/>}
             </Row>
             </div>
         )

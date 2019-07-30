@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        user = User.find_by_username(params[:id])
+        user = User.find(params[:id])
         item = AllItem.find(params[:itemId])
         Favorite.create(user_id: user.id, item_id: item.id, item_name: item.item_name, price: item.price, image_url: item.image_url, description: item.description)
     end
@@ -23,7 +23,7 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-        user = User.find_by_username(params[:username])
+        user = User.find(params[:id])
         item = AllItem.find(params[:itemId])
         unwantedItem = Favorite.where(user_id: user.id, item_id: item.id)
         Favorite.destroy(unwantedItem.ids)

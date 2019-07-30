@@ -26,8 +26,8 @@ class ItemSpec extends React.Component{
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col sm = {8} style = {{height: '100 vh', backgroundColor: 'gray'}}>
-                    <Card style = {{height: '80 vh', backgroundColor: 'gray'}}>
+                <Col sm = {8} style = {{height: '90vh', backgroundColor: 'gray'}}>
+                    <Card style = {{height: '90vh', backgroundColor: 'gray'}}>
                         {"Description: " + this.props.chosenItem.description}
                     </Card>
                 </Col>
