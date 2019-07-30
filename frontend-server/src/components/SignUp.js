@@ -47,7 +47,7 @@ export default  class SignUp extends  React.Component{
                     
                   <button style={{"border-radius": "7px"}}onClick={(e) => this.handleSubmit(e)}>Sign Up</button>
                    
-                    <p className="message">Already registered? <a href="#">Sign In</a></p>
+                    <p className="message">Already registered? <a href="/sign-in">Sign In</a></p>
                 </form>
                 </div>
                 <h2> <strong> The #1 place to buy or sell your goods </strong> </h2>
