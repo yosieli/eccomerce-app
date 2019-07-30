@@ -28,8 +28,14 @@ class Signin extends React.Component{
         password:this.state.password
       })
     }).then(res=>res.json())
+<<<<<<< HEAD
     .then(user => {
       console.log(this.props)
+=======
+    .then(user=> {
+
+
+>>>>>>> 9f3268240ce331c44e2d03ab1822a82c1014fd64
       localStorage.setItem('token',user.auth_token)
       localStorage.setItem('user',user.id)
       this.props.history.push('/browse')
