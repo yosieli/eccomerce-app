@@ -19,10 +19,10 @@ class ItemSpec extends React.Component{
                                 {"Price: $" + this.props.chosenItem.price}
                             </Card.Text>
 
-                            <Button onClick = {() => console.log("click")} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
-                            <Button onClick = {() => console.log("click")} variant="primary" style = {{marginBottom: '5px' }}>Add to Favorites</Button>
+                            <Button onClick = {() => console.log("click")} variant= "outline-primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
+                            <Button onClick = {() => console.log("click")} variant= "outline-primary" style = {{marginBottom: '5px' }}>Add to Favorites</Button>
                             <br></br>
-                            <Button onClick = {() => this.props.handleShow(this.props.item)} variant="primary" >Back</Button>
+                            <Button onClick = {() => this.props.handleShow(this.props.item)} variant= "outline-primary" >Back</Button>
                         </Card.Body>
                     </Card>
                 </Col>

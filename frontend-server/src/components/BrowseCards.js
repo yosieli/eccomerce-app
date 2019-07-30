@@ -16,9 +16,9 @@ class BrowseCards extends React.Component{
                             <Card.Text>
                                 {"Price: $" + this.props.item.price}
                             </Card.Text>
-                            <Button onClick = {() => this.props.handleShow(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>View Description</Button>
-                            <Button onClick = {() => this.props.addToCart(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
-                            <Button onClick = {() => this.props.addToFavorite(this.props.item)} variant="primary">Add to Favorites</Button>
+                            <Button onClick = {() => this.props.handleShow(this.props.item)} variant="outline-primary" style = {{marginBottom: '5px' }}>View Description</Button>
+                            <Button onClick = {() => this.props.addToCart(this.props.item)} variant="outline-primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
+                            <Button onClick = {() => this.props.addToFavorite(this.props.item)} variant="outline-primary">Add to Favorites</Button>
                         </Card.Body>
                     </Card>
                 </Col>)
