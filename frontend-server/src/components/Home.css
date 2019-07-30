@@ -1,11 +1,6 @@
 
 .bg-custom {
     /* background-color: darkred; */
-    background-color: rgb(166, 184, 54)
+    
 }
 
-.sticky {
-    position: fixed;
-    z-index: 10;
-    width: 100%;
-  }

@@ -1,7 +1,7 @@
 import React from "react";
 import {Cards} from './Card.js'
 import Row from "react-bootstrap/Row";
-import Nav from './Home.js'
+
 
 import ItemSpec from './ItemSpec.js'
 
@@ -82,7 +82,7 @@ class Favorites extends React.Component {
     render(){
         return(
             <div>
-            <Nav/>
+            
 
             <Row style = {{marginRight: '0px'}}>
                 

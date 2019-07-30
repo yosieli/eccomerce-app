@@ -2,9 +2,8 @@ import React from 'react'
 import CartItems from './CartItems'
 import { Button } from 'react-bootstrap'
 import CheckOutForm from './CheckOutForm'
-import Nav from './Home.js'
-//import ShowDetails from './ShowDetails'
-import Nav from './Home.js'
+
+
 import Row from 'react-bootstrap/Row'
 
 
@@ -136,7 +135,7 @@ export default  class Cart  extends React.Component {
     }
      return(
         <div>
-        <Nav/>
+       
             {shown}
         </div>
         )
