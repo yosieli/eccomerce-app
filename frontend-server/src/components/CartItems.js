@@ -27,8 +27,8 @@ export default  class Cart  extends React.Component {
                     <Card.Text>
                         {"Price: $" + this.props.item.price}
                     </Card.Text>
-                    <Button onClick = {()=>this.props.removeItem(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>Remove Item</Button>
-                    <Button onClick = {()=>this.props.byeItems(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>Add Item</Button>
+                    <Button onClick = {()=>this.props.removeItem(this.props.item)} variant="outline-danger" style = {{marginBottom: '5px' }}>Remove </Button>
+                    <Button onClick = {()=>this.props.byeItems(this.props.item)} variant="outline-primary" style = {{marginBottom: '5px' }}>Bye Item</Button>
                 </Card.Body>
             </Card>
 

@@ -37,6 +37,13 @@ export default  class Cart  extends React.Component {
 
 
     removeItem = (item) => {
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}/${item.item_id}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
          let myItems = this.state.myItems.filter(items => {
                 return items.id !== item.id
             })
@@ -92,7 +99,7 @@ export default  class Cart  extends React.Component {
     else{
         shown = (<div>
             <h3> My Cart items</h3>
-            <h3><Button onClick={() => this.clearCart(this.clearCart)}  >Clear all</Button> </h3> 
+            <h3><Button onClick={() => this.clearCart(this.clearCart)}  variant="outline-danger" >Empty Cart</Button> </h3> 
             
             <Row>
                 {items.map(item => {
