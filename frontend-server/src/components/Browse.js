@@ -2,7 +2,7 @@ import React from "react";
 import {BrowseCards} from './BrowseCards.js'
 import ItemSpec from './ItemSpec.js'
 import Row from "react-bootstrap/Row";
-import Nav from './Home.js'
+
 
 class Browse extends React.Component {
     state = {
@@ -73,12 +73,12 @@ class Browse extends React.Component {
     }
     render(){
         return(
-            <div>
-            <Nav/>
-            <Row style = {{marginRight: '0px'}}>
-                {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>) : <ItemSpec browse = {this.state.browse} chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>}
-            </Row>
-            </div>
+            
+                    <Row style = {{marginRight: '0px', "background-color": "rgb(238,236,225)"}}>
+                        {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>) : <ItemSpec browse = {this.state.browse} chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>}
+
+                    </Row>
+           
         )
     }
 }

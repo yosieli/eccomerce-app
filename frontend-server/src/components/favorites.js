@@ -1,8 +1,10 @@
 import React from "react";
 import {Cards} from './Card.js'
 import Row from "react-bootstrap/Row";
-import Nav from './Home.js'
+
+
 import ItemSpec from './ItemSpec.js'
+
 
 class Favorites extends React.Component {
     state = {
@@ -80,11 +82,12 @@ class Favorites extends React.Component {
     render(){
         return(
             <div>
-            <Nav/>
+            
+
             <Row style = {{marginRight: '0px'}}>
                 
                 {this.state.showingAllItems ? this.state.myFavorites.map( (item) =><Cards item = {item} addToCart = {this.addToCart} remove = {this.remove} handleShow = {this.handleShow}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} browse = {this.state.browse}/>}  
-                
+
             </Row>
             </div>
         )
