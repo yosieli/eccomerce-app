@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get '/favoriteItems/:id', to: "favorites#myFavorite"
   post '/addToFavorites/:id/:itemId', to: "favorites#create"
   delete '/favoriteItems/:id/:itemId', to: "favorites#destroy"
+
   delete '/cartItems',to: "carts#destroyAll"
+
 
   post '/login', to: 'users#authenticate'
   post '/signup', to: 'users#create'

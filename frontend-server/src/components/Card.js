@@ -1,7 +1,7 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-// import Col from 'react-bootstrap/Col'
+
 
 class Cards extends React.Component{
     state = {
