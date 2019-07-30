@@ -28,6 +28,8 @@ export default class Signin extends React.Component{
       })
     }).then(res=>res.json())
     .then(user=> {
+
+
       localStorage.setItem('token',user.auth_token)
       localStorage.setItem('user',user.id)
     })
