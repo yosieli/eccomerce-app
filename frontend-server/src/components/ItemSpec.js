@@ -11,6 +11,7 @@ class ItemSpec extends React.Component{
         return(
             
                 <React.Fragment>
+                  
                 <Col sm ={4}>
                     <Card style={{ width: '18rem','border-radius': '7px', marginLeft: '25%', marginTop: '30%'}} onClick = {() => this.props.handleShow(this.props.chosenItem)}>
                         <Card.Img variant="top" src={this.props.chosenItem.image_url} style = {{height: '250px'}}/>
@@ -28,11 +29,12 @@ class ItemSpec extends React.Component{
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col sm = {8} style = {{height: '91vh' ,backgroundColor: 'gray'}}>
+                <Col  sm = {8} style = {{height: '91vh' ,backgroundColor: 'gray'}}>
                     <Card style = {{height: '90vh', width: '130vh', backgroundColor: 'gray'}}>
                         {"Description: " + this.props.chosenItem.description}
                     </Card>
                 </Col>
+             
             </React.Fragment>
         )
     }  

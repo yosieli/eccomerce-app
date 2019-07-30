@@ -114,7 +114,7 @@ export default  class Cart  extends React.Component {
                 )
     }
     else{
-        shown = (<div>
+        shown = (<div style = {{paddingLeft: '6%'}}>
             <h3> My Cart items: ${this.state.total}</h3>
             <h3><Button onClick={() => this.clearCart()}  variant="outline-danger" >Empty Cart</Button> </h3> 
             
