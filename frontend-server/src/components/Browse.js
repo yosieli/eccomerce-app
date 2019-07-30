@@ -56,7 +56,7 @@ class Browse extends React.Component {
         return(
             <div>
             <Nav/>
-            <Row style= {{height: '100vh'}}>
+            <Row style={{height: '100vh', "background-color": "rgb(238,236,225)"}}>
                 {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow}/>}
             </Row>
             </div>

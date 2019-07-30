@@ -2,7 +2,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
-import Nav from './Home.js'
+// import Nav from './Home.js'
 
 class ItemSpec extends React.Component{
    

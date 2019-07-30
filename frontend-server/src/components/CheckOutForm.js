@@ -28,7 +28,7 @@ import './CheckOut.css'
       <label>{props.label}</label>
       <div className="input-field">
         <input type={props.type} name={props.name} />
-        <img src={props.imgSrc}/>
+        <img src={props.imgSrc} alt='rip'/>
       </div>
     </div>
   );

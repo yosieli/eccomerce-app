@@ -9,8 +9,8 @@ import {Browse} from './components/Browse.js'
 import Signin from './components/Signin.js'
 import { BrowserRouter } from 'react-router-dom'
 import { Route } from 'react-router'
+// import CheckOutForm from './components/CheckOutForm'
 
-import CheckOutForm from './components/CheckOutForm'
  export default class App extends React.Component {
      state={
        items:[],

@@ -1,6 +1,7 @@
 import React from "react";
 import {Cards} from './Card.js'
 import Row from "react-bootstrap/Row";
+import Nav from './Home.js'
 
 class Favorites extends React.Component {
     state = {
@@ -25,6 +26,7 @@ class Favorites extends React.Component {
     render(){
         return(
             <div>
+            <Nav/>
             <Row>
                 {this.state.myFavorites.map( (item, index) =>{
                     return (

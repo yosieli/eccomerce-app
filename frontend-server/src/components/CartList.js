@@ -2,6 +2,7 @@ import React from 'react'
 import CartItems from './CartItems'
 import { Button } from 'react-bootstrap'
 import CheckOutForm from './CheckOutForm'
+import Nav from './Home.js'
 //import ShowDetails from './ShowDetails'
 export default  class Cart  extends React.Component {
     state = {
@@ -92,7 +93,9 @@ export default  class Cart  extends React.Component {
                     </div>)
     }
     else{
-        shown = (<div>
+        shown = (
+        <div>
+            <Nav/>
             <h3> My Cart items</h3>
             <h3><Button onClick={() => this.clearCart(this.clearCart)}  >Clear all</Button> </h3> 
             

@@ -28,7 +28,7 @@ export default class Signin extends React.Component{
       })
     }).then(res=>res.json())
     .then(user=> {
-      this.props.history.push('/browse')
+      // this.props.history.push('/browse')
       localStorage.setItem('token',user.auth_token)
       localStorage.setItem('user',user.id)
     })
@@ -43,14 +43,14 @@ export default class Signin extends React.Component{
       <source src="stock.mp4" type="video/mp4"/>
     </video>
     <h1 > <strong> Welcome to </strong> </h1>
-      <img className="logo-s" align="top" src="logo.png" height="160" width="400"/>
+      <img className="logo-s" align="top" src="logo.png" height="160" width="400" alt='rip'/>
         <div className="form">
           <form className="register-form">
           <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
            <input name = "password" onChange={this.handleChange} type="password" placeholder="password"/>
             <input type="text" placeholder="email address"/>
             <button>create</button>
-            <p className="message">Already registered? <a href="#">Sign In</a></p>
+            {/* <p className="message">Already registered? <a href="#">Sign In</a></p> */}
           </form>
           <form onSubmit={this.handleSubmit} className="login-form">
           <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
