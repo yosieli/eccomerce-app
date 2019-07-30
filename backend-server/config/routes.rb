@@ -5,15 +5,17 @@ Rails.application.routes.draw do
 
   get '/allItems', to: "all_items#index"
 
-  get '/cartItems/:username', to: "carts#myCart"
-  post '/addToCart/:username/:itemId', to: "carts#create"
-  delete '/cartItems/:username/:itemId', to: "carts#destroy"
+  get '/cartItems/:id', to: "carts#myCart"
+  post '/addToCart/:id/:itemId', to: "carts#create"
+  delete '/cartItems/:id/:itemId', to: "carts#destroy"
 
-  get '/favoriteItems/:username', to: "favorites#myFavorite"
-  post '/addToFavorites/:username/:itemId', to: "favorites#create"
-  delete '/favoriteItems/:username/:itemId', to: "favorites#destroy"
+  get '/favoriteItems/:id', to: "favorites#myFavorite"
+  post '/addToFavorites/:id/:itemId', to: "favorites#create"
+  delete '/favoriteItems/:id/:itemId', to: "favorites#destroy"
+  delete '/cartItems',to: "carts#destroyAll"
 
   post '/login', to: 'users#authenticate'
+  post '/signup', to: 'users#create'
 
 
 end
