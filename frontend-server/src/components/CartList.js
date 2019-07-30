@@ -3,6 +3,7 @@ import CartItems from './CartItems'
 import { Button } from 'react-bootstrap'
 import CheckOutForm from './CheckOutForm'
 //import ShowDetails from './ShowDetails'
+import Nav from './Home.js'
 export default  class Cart  extends React.Component {
     state = {
         myItems: [],
@@ -111,7 +112,10 @@ export default  class Cart  extends React.Component {
 
     }
      return(
-        shown
+        <div>
+        <Nav/>
+            {shown}
+        </div>
         )
     }
 

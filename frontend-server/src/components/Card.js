@@ -9,19 +9,21 @@ class Cards extends React.Component{
     }
     render () {
         return(
-            // <Col xs={4}>
-                <Card style={{ width: '18rem','border-radius': '7px'}}>
-                    {this.state.front ? <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}} /> : null}
-                    <Card.Body >
-                        <Card.Title>{this.props.item.item_name}</Card.Title>
-                        <Card.Text>
-                            {this.state.front ? "Price: $" + this.props.item.price : this.props.item.description}
-                        </Card.Text>
-                            {this.state.front ? <Button onClick = {() => this.setState({front: !this.state.front})} variant="primary" style = {{marginBottom: '10px' }}>View Description</Button> : <Button onClick = {() => this.setState({front: !this.state.front})} variant="primary" style = {{marginRight: '5px'}}>Back</Button>} 
-                        <Button onClick = {() => console.log("click")} variant="primary">Add to Cart</Button>
-                    </Card.Body>
-                </Card>
-            // </Col>
+
+            <Card style={{ width: '18rem','border-radius': '7px', margin: '10px'}}>
+                <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}}/>
+                <Card.Body >
+                    <Card.Title>{this.props.item.item_name}</Card.Title>
+                    <Card.Text>
+                        {"Price: $" + this.props.item.price}
+                    </Card.Text>
+                    <Button onClick = {() => this.props.handleShow(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>View Description</Button>
+                    <Button onClick = {() => this.props.addToCart(this.props.item)} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
+                    <br></br>
+                    <Button onClick = {() => this.props.remove(this.props.item)} variant="primary">Remove</Button>
+                </Card.Body>
+            </Card>
+       
         )
     }  
 }
