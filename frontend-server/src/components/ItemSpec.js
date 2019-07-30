@@ -20,8 +20,8 @@ class ItemSpec extends React.Component{
                                 {"Price: $" + this.props.chosenItem.price}
                             </Card.Text>
 
-                            <Button onClick = {() => this.props.addToCart(this.props.chosenItem)} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
                             {this.props.browse ? <Button onClick = {() => this.props.addToFavorite(this.props.chosenItem)} variant="primary" style = {{marginBottom: '5px' }}>Add to Favorites</Button> : null}
+                            <Button onClick = {() => this.props.addToCart(this.props.chosenItem)} variant="primary" style = {{marginBottom: '5px' }}>Add to Cart</Button>
                             <br></br>
                             <Button onClick = {() => this.props.handleShow(this.props.chosenItem)} variant="primary" >Back</Button>
                         </Card.Body>

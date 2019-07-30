@@ -58,7 +58,6 @@ export default  class Cart  extends React.Component {
     }
    
     handleSubmit = () => {
-        console.log("h")
         this.setState({
             buyItems: !this.state.buyItems
         })
@@ -121,18 +120,10 @@ export default  class Cart  extends React.Component {
 
     }
      return(
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f3268240ce331c44e2d03ab1822a82c1014fd64
         <div>
         <Nav/>
             {shown}
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f3268240ce331c44e2d03ab1822a82c1014fd64
         )
 
     }
