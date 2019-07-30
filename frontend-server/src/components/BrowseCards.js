@@ -8,7 +8,10 @@ class BrowseCards extends React.Component{
     render () {
         let card
         if(true){
-            card = (<Col xs={4}>
+            card = (
+                
+                
+                <Col xs={4} >
                     <Card style={{ width: '18rem','border-radius': '7px', margin: '10px'}}>
                         <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}}/>
                         <Card.Body >
@@ -21,9 +24,14 @@ class BrowseCards extends React.Component{
                             <Button onClick = {() => this.props.addToCart(this.props.item)} variant="outline-primary" >Add to Cart</Button>
                         </Card.Body>
                     </Card>
-                </Col>)
+                </Col>
+                
+                )
+                
+                
         }
         return(
+           
             <div>
                 {card}
             </div>

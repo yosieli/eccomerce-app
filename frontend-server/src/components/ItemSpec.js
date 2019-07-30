@@ -12,8 +12,8 @@ class ItemSpec extends React.Component{
             
                 <React.Fragment>
                   
-                <Col sm ={4}>
-                    <Card style={{ width: '18rem','border-radius': '7px', marginLeft: '25%', marginTop: '30%'}} onClick = {() => this.props.handleShow(this.props.chosenItem)}>
+                <Col sm ={6}>
+                    <Card style={{ opacity: '.8', width: '18rem','border-radius': '7px', marginLeft: '22%', marginTop: '29%'}} onClick = {() => this.props.handleShow(this.props.chosenItem)}>
                         <Card.Img variant="top" src={this.props.chosenItem.image_url} style = {{height: '250px'}}/>
                         <Card.Body >
                             <Card.Title>{this.props.chosenItem.item_name}</Card.Title>
@@ -29,9 +29,22 @@ class ItemSpec extends React.Component{
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col  sm = {8} style = {{height: '91vh' ,backgroundColor: 'gray'}}>
-                    <Card style = {{height: '90vh', width: '130vh', backgroundColor: 'gray'}}>
-                        {"Description: " + this.props.chosenItem.description}
+                <Col  sm = {6} style = {{height: '91vh' ,backgroundColor: 'black'}}>
+                    <Card style = {{height: '91vh', width: '72vh', backgroundColor: 'gray'}}>
+                        <div style = {{color: 'white', paddingLeft: '6%'}}>
+                            <div style = {{fontSize: '400%'}}>
+                            {"Name: " + this.props.chosenItem.item_name}
+                            </div>
+                            <br></br>
+                            <br></br>
+                            <div style = {{fontSize: '250%'}}>
+                            {"Price: " + this.props.chosenItem.price}
+                            </div>
+                            <br></br>
+                            <div style = {{fontSize: '200%'}}>
+                            {"Description: " + this.props.chosenItem.description}
+                            </div>
+                        </div>
                     </Card>
                 </Col>
              
