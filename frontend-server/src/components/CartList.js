@@ -4,6 +4,10 @@ import { Button } from 'react-bootstrap'
 import CheckOutForm from './CheckOutForm'
 import Nav from './Home.js'
 //import ShowDetails from './ShowDetails'
+import Nav from './Home.js'
+
+
+
 export default  class Cart  extends React.Component {
     state = {
         myItems: [],
@@ -12,23 +16,22 @@ export default  class Cart  extends React.Component {
        
     }
 
-
     componentDidMount(){
-     fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
-         method: "GET",
-         headers: {
-             'Content-Type': 'application/json',
-             'Authorization': `Bearer ${localStorage.getItem('token')}`
-         }
-     })
-     .then(res=>res.json())
-     .then(result=>this.setState({
-         myItems:result
-     })).then(this.buyItems)
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(res=>res.json())
+        .then(result=>this.setState({
+            myItems:result
+        })).then(this.buyItems)
     }
 
   
-    buyItems = ()=>{
+    buyItems = () => {
         let counter =0
         this.state.myItems.forEach(item=>counter += parseInt(item.price))
         this.setState({
@@ -38,7 +41,14 @@ export default  class Cart  extends React.Component {
     }
 
 
-    removeItem = (item)=>{
+    removeItem = (item) => {
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}/${item.item_id}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
          let myItems = this.state.myItems.filter(items => {
                 return items.id !== item.id
             })
@@ -48,8 +58,7 @@ export default  class Cart  extends React.Component {
          })
     }
    
-    handleSubmit = ()=>{
-        console.log("h")
+    handleSubmit = () => {
         this.setState({
             buyItems: !this.state.buyItems
         })
@@ -57,11 +66,18 @@ export default  class Cart  extends React.Component {
     }
 
 
-    buySpecificItem = (item)=>{
+    buySpecificItem = (item) => {
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}/${item.item_id}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
         let myItems = this.state.myItems.filter(items => {
             return items.id !== item.id
         })
-     this.setState({
+        this.setState({
          myItems: myItems,
          total: this.state.total-(item.quantity * item.price),
          buyItems: !this.state.buyItems
@@ -69,15 +85,20 @@ export default  class Cart  extends React.Component {
 
     }
 
-
-    clearCart = () =>{
+    clearCart = () => {
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
         this.setState({
             myItems:[],
             total:0
         })
        
     } 
-
 
     render(){
      let items = this.state.myItems
@@ -90,32 +111,38 @@ export default  class Cart  extends React.Component {
                                 <CheckOutForm  handleSubmit={this.handleSubmit}/>
                             </div>
                         </div>
-                    </div>)
+                    </div>
+                )
     }
     else{
         shown = (
         <div>
             <Nav/>
             <h3> My Cart items</h3>
-            <h3><Button onClick={() => this.clearCart(this.clearCart)}  >Clear all</Button> </h3> 
+            <h3><Button onClick={() => this.clearCart()}  variant="outline-danger" >Empty Cart</Button> </h3> 
             
-
-            {items.map(item => {
-                return(
-                <div>
-                <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
-                {/* <ShowDetails show={this.show.showDetails}  showDetails={this.showDetails}/> */}
-                </div> 
-                )
-            })}
-                <p>Total:${this.state.total} </p>
+            
+                {items.map(item => {
+                    return(
+                    <div>
+                        
+                    <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} byeItems={this.buySpecificItem} /> 
+                    </div> 
+                    )
+                })}
+            
+                <h3>Total:${this.state.total} </h3>
 
          </div>)
 
     }
      return(
-        shown
+        <div>
+        <Nav/>
+            {shown}
+        </div>
         )
+
     }
 
 

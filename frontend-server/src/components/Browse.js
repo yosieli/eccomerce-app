@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowseCards} from './BrowseCards.js'
-import {ItemSpec} from './ItemSpec.js'
+import ItemSpec from './ItemSpec.js'
 import Row from "react-bootstrap/Row";
 import Nav from './Home.js'
 
@@ -9,7 +9,8 @@ class Browse extends React.Component {
         allItems: [],
         showingAllItems: true,
         chosenItem: {},
-        current_user: {}
+        current_user: {},
+        browse: true
     }
     componentDidMount() {
         fetch('http://localhost:3000/allItems', {
@@ -52,12 +53,32 @@ class Browse extends React.Component {
             })
         })
     }
+
+    addToFavorite = (item) => {
+        fetch(`http://localhost:3000/addToFavorites/${localStorage.getItem('user')}/${item.id}`,{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            },
+            body: JSON.stringify({
+                user_id: localStorage.getItem('user'),
+                item_id: item.id,
+                item_name: item.item_name,
+                description: item.description,
+                price: item.price,
+                image_url: item.image_url
+            })
+        })
+    }
     render(){
         return(
             <div>
             <Nav/>
-            <Row style={{height: '100vh', "background-color": "rgb(238,236,225)"}}>
-                {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow}/>}
+
+            <Row style = {{marginRight: '0px', height: '100vh', "background-color": "rgb(238,236,225)"}}>
+                {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>) : <ItemSpec browse = {this.state.browse} chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>}
+
             </Row>
             </div>
         )

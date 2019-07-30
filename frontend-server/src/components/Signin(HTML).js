@@ -1,8 +1,9 @@
 import React from 'react'
 import './Signin.css'
+import { withRouter } from 'react-router-dom'
 
 
-export default class Signin extends React.Component{
+class Signin extends React.Component{
 
   state = {
     username: '',
@@ -27,15 +28,19 @@ export default class Signin extends React.Component{
         password:this.state.password
       })
     }).then(res=>res.json())
-    .then(user=> {
-      // this.props.history.push('/browse')
+
+    .then(user => {
+      console.log(this.props)
+
       localStorage.setItem('token',user.auth_token)
       localStorage.setItem('user',user.id)
+      this.props.history.push('/browse')
     })
       
   }
 
   render(){
+   
   return (
     <div className="login-page">
     <video autoPlay muted loop id="video-background" >
@@ -45,18 +50,11 @@ export default class Signin extends React.Component{
     <h1 > <strong> Welcome to </strong> </h1>
       <img className="logo-s" align="top" src="logo.png" height="160" width="400" alt='rip'/>
         <div className="form">
-          <form className="register-form">
-          <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
-           <input name = "password" onChange={this.handleChange} type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
-            {/* <p className="message">Already registered? <a href="#">Sign In</a></p> */}
-          </form>
           <form onSubmit={this.handleSubmit} className="login-form">
           <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
            <input name = "password" onChange={this.handleChange} type="password" placeholder="password"/>
            <button style={{"border-radius": "7px"}}onClick={(e) => this.handleSubmit(e)}>login</button>
-            <p className="message">Not registered? <a href="#">Create an account</a></p>
+            <p className="message">Not registered? <a href = "/sign-up">Create an account</a></p>
           </form>
         </div>
         <h2> <strong> The #1 place to buy or sell your goods </strong> </h2>
@@ -65,5 +63,5 @@ export default class Signin extends React.Component{
 };
 }
 
-
+export default withRouter (Signin)
 

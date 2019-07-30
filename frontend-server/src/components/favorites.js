@@ -3,9 +3,15 @@ import {Cards} from './Card.js'
 import Row from "react-bootstrap/Row";
 import Nav from './Home.js'
 
+import ItemSpec from './ItemSpec.js'
+
+
 class Favorites extends React.Component {
     state = {
         myFavorites: [],
+        showingAllItems: true,
+        chosenItem: {},
+        browse: false
     }
     componentDidMount() {
         fetch(`http://localhost:3000/favoriteItems/${localStorage.getItem('user')}`, {
@@ -23,16 +29,65 @@ class Favorites extends React.Component {
             })
         })
     }
+    handleShow = (item) => {
+        this.setState({
+            showingAllItems: !this.state.showingAllItems,
+            chosenItem: item
+        })
+    }
+
+    addToCart = (item) => {
+  
+        fetch(`http://localhost:3000/addToCart/${localStorage.getItem('user')}/${item.item_id}`,{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            },
+            body: JSON.stringify({
+                
+                user_id: localStorage.getItem('user'),
+                item_id: item.id,
+                quantity: 1,
+                item_name: item.item_name,
+                price: item.price,
+                image_url: item.image_url
+            })
+        })
+        let myItems = this.state.myFavorites.filter(items => {
+            return items.id !== item.id
+        })
+        this.setState({
+            myFavorites: myItems,
+        })
+    }
+
+    remove = (item) => {
+        fetch(`http://localhost:3000/favoriteItems/${localStorage.getItem('user')}/${item.item_id}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
+        let myItems = this.state.myFavorites.filter(items => {
+            return items.id !== item.id
+        })
+        this.setState({
+            myFavorites: myItems,
+        })
+    }
+
+
     render(){
         return(
             <div>
             <Nav/>
-            <Row>
-                {this.state.myFavorites.map( (item, index) =>{
-                    return (
-                            <Cards item = {item} />
-                    )
-                })}
+
+            <Row style = {{marginRight: '0px'}}>
+                
+                {this.state.showingAllItems ? this.state.myFavorites.map( (item) =><Cards item = {item} addToCart = {this.addToCart} remove = {this.remove} handleShow = {this.handleShow}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} browse = {this.state.browse}/>}  
+
             </Row>
             </div>
         )
