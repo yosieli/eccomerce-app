@@ -1,8 +1,9 @@
 import React from 'react'
 import './Signin.css'
+import { withRouter } from 'react-router-dom'
 
 
-export default class Signin extends React.Component{
+class Signin extends React.Component{
 
   state = {
     username: '',
@@ -27,9 +28,11 @@ export default class Signin extends React.Component{
         password:this.state.password
       })
     }).then(res=>res.json())
-    .then(user=> {
+    .then(user => {
+      console.log(this.props)
       localStorage.setItem('token',user.auth_token)
       localStorage.setItem('user',user.id)
+      this.props.history.push('/browse')
     })
       
   }
@@ -64,5 +67,5 @@ export default class Signin extends React.Component{
 };
 }
 
-
+export default withRouter (Signin)
 

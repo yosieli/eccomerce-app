@@ -31,4 +31,3 @@ class BrowseCards extends React.Component{
     }  
 }
 export {BrowseCards}
-  

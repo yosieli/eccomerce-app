@@ -113,15 +113,10 @@ export default  class Cart  extends React.Component {
 
     }
      return(
-<<<<<<< HEAD
         <div>
         <Nav/>
             {shown}
         </div>
-=======
-        shown
-
->>>>>>> 3ab245846ba3eeefb569dc8592a6896b8c44d33f
         )
 
     }
