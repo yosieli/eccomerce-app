@@ -28,7 +28,6 @@ import ItemSpec from './components/ItemSpec.js'
           <Route exact path = '/sign-in' component = {Signin}/>
           <Route exact path = '/sign-up' component = {SignUp}/>
           <Route exact path = '/browse' component = {Browse}/>
-          <Route exact path = '/sign-in' component = {Signin}/>
           <Route exact path = '/myCart' component = {CartList}/>
           <Route exact path = '/myFavorites' component = {Favorites}/>
           <Route exact path = '/description' component = {ItemSpec}/>
