@@ -16,9 +16,16 @@ class CartsController < ApplicationController
     
 
     def destroy
-        user = User.find_by_username(params[:id])
+        user = User.find(params[:id])
         item = AllItem.find(params[:itemId])
         unwantedItem = Cart.where(user_id: user.id, item_id: item.id)
         Cart.destroy(unwantedItem.ids)
+    end
+
+    def destroyAll
+        user = User.All 
+        cart = Cart.All 
+        unwantedItem = Cart.where(user_id: user.id, item_id: item.id)
+        Cart.destroy(unwantedItem)
     end
 end

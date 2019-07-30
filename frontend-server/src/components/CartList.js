@@ -5,7 +5,7 @@ import CheckOutForm from './CheckOutForm'
 //import ShowDetails from './ShowDetails'
 import Nav from './Home.js'
 
-import Row from "react-bootstrap/Row"
+
 
 export default  class Cart  extends React.Component {
     state = {
@@ -66,10 +66,17 @@ export default  class Cart  extends React.Component {
 
 
     buySpecificItem = (item) => {
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}/${item.item_id}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
         let myItems = this.state.myItems.filter(items => {
             return items.id !== item.id
         })
-     this.setState({
+        this.setState({
          myItems: myItems,
          total: this.state.total-(item.quantity * item.price),
          buyItems: !this.state.buyItems
@@ -78,6 +85,13 @@ export default  class Cart  extends React.Component {
     }
 
     clearCart = () => {
+        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            }
+        })
         this.setState({
             myItems:[],
             total:0
@@ -102,9 +116,9 @@ export default  class Cart  extends React.Component {
     else{
         shown = (<div>
             <h3> My Cart items</h3>
-            <h3><Button onClick={() => this.clearCart(this.clearCart)}  variant="outline-danger" >Empty Cart</Button> </h3> 
+            <h3><Button onClick={() => this.clearCart()}  variant="outline-danger" >Empty Cart</Button> </h3> 
             
-            <Row>
+            
                 {items.map(item => {
                     return(
                     <div>
@@ -113,7 +127,7 @@ export default  class Cart  extends React.Component {
                     </div> 
                     )
                 })}
-            </Row>
+            
                 <h3>Total:${this.state.total} </h3>
 
          </div>)
