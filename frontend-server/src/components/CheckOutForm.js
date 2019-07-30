@@ -7,7 +7,7 @@ import './CheckOut.css'
       <div className="checkout-container">
        <h3 className="heading-3">Credit card checkout</h3>
        <Input label="Cardholder's Name" type="text" name="name" />
-       <Input label="Card Number" type="number" name="card_number" imgSrc="https://seeklogo.com/images/V/visa-logo-6F4057663D-seeklogo.com.png" />
+       <Input label="Card Number" type="number" name="card_number" imgSrc="https://seeklogo.com/images/V/visa-logo-6F4057663D-seeklogo.com.png" alt="" />
         <div className="row">
           <div className="col">
             <Input label="Expiration Date" type="month" name="exp_date" />
@@ -27,8 +27,7 @@ import './CheckOut.css'
     <div className="input">
       <label>{props.label}</label>
       <div className="input-field">
-        <input type={props.type} name={props.name} />
-        <img src={props.imgSrc} alt='rip'/>
+        <input type={props.type} name={props.name} />  
       </div>
     </div>
   );

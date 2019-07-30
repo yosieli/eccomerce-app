@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   post '/addToFavorites/:id/:itemId', to: "favorites#create"
   delete '/favoriteItems/:id/:itemId', to: "favorites#destroy"
 
-  delete '/cartItems',to: "carts#destroyAll"
+  delete '/cartItems/:id',to: "carts#destroyAll"
+
 
 
   post '/login', to: 'users#authenticate'
