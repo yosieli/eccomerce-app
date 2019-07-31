@@ -30,11 +30,15 @@ class Signin extends React.Component{
     }).then(res=>res.json())
 
     .then(user => {
-      console.log(this.props)
-
-      localStorage.setItem('token',user.auth_token)
-      localStorage.setItem('user',user.id)
-      this.props.history.push('/browse')
+      if(user.error){
+        alert('Incorrect Username or Password. Please try again.')
+        this.props.history.push('/sign-in')
+      }
+      else{
+        localStorage.setItem('token',user.auth_token)
+        localStorage.setItem('user',user.id)
+        this.props.history.push('/browse')
+      }
     })
       
   }
@@ -52,12 +56,12 @@ class Signin extends React.Component{
         <div className="form">
           <form onSubmit={this.handleSubmit} className="login-form">
           <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
-           <input name = "password" onChange={this.handleChange} type="password" placeholder="password"/>
+           <input name = "password" onChange={this.handleChange} type="password" placeholder="password" />
            <button style={{"border-radius": "7px"}}onClick={(e) => this.handleSubmit(e)}>login</button>
             <p className="message">Not registered? <a href = "/sign-up">Create an account</a></p>
           </form>
         </div>
-        <h2> <strong> The #1 place to buy or sell your goods </strong> </h2>
+        <h2 style = {{paddingLeft: '2%'}}> <strong> The #1 place to buy or sell your goods </strong> </h2>
       </div>
   );
 };
