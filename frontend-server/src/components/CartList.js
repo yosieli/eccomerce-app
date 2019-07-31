@@ -15,6 +15,7 @@ export default  class Cart  extends React.Component {
         chosenItem: {},
         boughtItem: false,
        
+       
     }
 
     componentDidMount(){
