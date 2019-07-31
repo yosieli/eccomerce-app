@@ -21,8 +21,9 @@ const NavBar = withRouter((props) => (
         <Nav.Link href='/browse'> <strong> Browse </strong> </Nav.Link>
         <Nav.Link href='/myFavorites'><strong> Favorites </strong></Nav.Link>
       </Nav>
+
+      <Nav.Link href='/myCart'><img  style= {{height: '50px', transform: 'scaleX(-1)'}} src = "http://www.sclance.com/pngs/grocery-cart-png/grocery_cart_png_614332.png"/></Nav.Link>
       <Nav>
-        <Nav.Link href='/myCart'><strong> Cart </strong></Nav.Link>
         <Nav.Link onClick={() => {
           localStorage.clear()
           props.history.push('/sign-in')
