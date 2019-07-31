@@ -16,7 +16,7 @@ import './CheckOut.css'
             <Input label="CVV" type="number" name="cvv" />
           </div>
         </div>
-        <Button handleSubmit = {props.handleSubmit} text="Place order" />
+        <Button handleSubmit = {props.handleSubmit} chosenItem = {props.chosenItem} text="Place order" />
       </div>
    </div>
   );
@@ -33,7 +33,7 @@ import './CheckOut.css'
   );
   
   const Button = (props) => (
-    <button className="checkout-btn" type="button" onClick={()=>props.handleSubmit()}>{props.text}</button>
+    <button className="checkout-btn" type="button" onClick={()=>props.handleSubmit(props.chosenItem)}>{props.text}</button>
   );
   
   export  default Checkout
