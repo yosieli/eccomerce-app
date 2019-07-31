@@ -63,7 +63,7 @@
     cursor: pointer;
   }
 
-  .form button:hover,.form button:active,.form button:focus {
+  .form button:hover {
     background: rgb(237,27,35);
   }
   .form .message {

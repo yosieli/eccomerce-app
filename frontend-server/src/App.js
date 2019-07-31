@@ -14,15 +14,16 @@ export default class App extends React.Component {
   state = {
     items: [],
     cart: [],
-    total: 0
+    total: 0,
   }
+  
 
 
   render() {
    
     return (
       <div>
-        
+
         <div>
           <BrowserRouter >
             <NavBar />
@@ -31,7 +32,8 @@ export default class App extends React.Component {
             <Route exact path='/browse' component={Browse} />
             <Route exact path='/myCart' component={CartList} />
             <Route exact path='/myFavorites' component={Favorites} />
-            <Route exact path='/description' component={ItemSpec} />
+            {/* {we were hopping to implement this, but never got around to it} */}
+            {/* <Route exact path='/description' component={ItemSpec} /> */}
           </BrowserRouter>
         </div>
       </div>

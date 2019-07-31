@@ -26,9 +26,19 @@ export default  class Cart  extends React.Component {
             }
         })
         .then(res=>res.json())
-        .then(result=>this.setState({
-            myItems:result
-        })).then(this.buyItems)
+        .then(result=>{
+            console.log(result)
+            if(result.error){
+                alert("You are not Signed in. Please Sign in or Create an Account")
+                this.props.history.push('/sign-in')
+            }
+            else{
+                this.setState({
+                    myItems:result
+                })
+            }
+    })
+        .then(this.buyItems)
     }
 
   
