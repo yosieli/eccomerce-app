@@ -22,10 +22,16 @@ class Browse extends React.Component {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            this.setState({
-                allItems: data
-            })
+            if(data.error){
+                alert("You are not Signed in. Please Sign in or Create an Account")
+                this.props.history.push('/sign-in')
+            }
+            else{
+                this.setState({
+                    allItems: data
+                })
+
+            }
         })
     }
     handleShow = (item) => {
