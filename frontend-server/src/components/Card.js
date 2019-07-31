@@ -9,8 +9,7 @@ class Cards extends React.Component{
     }
     render () {
         return(
-            <div>
-            
+           <div>
             <Col xs={4}>
                 <Card style={{ width: '18rem','border-radius': '7px', margin: '10px'}}>
                     <Card.Img variant="top" src={this.props.item.image_url} style = {{height: '250px'}}/>
@@ -26,8 +25,8 @@ class Cards extends React.Component{
                     </Card.Body>
                 </Card>
             </Col>
+           
             </div>
-       
         )
     }  
 }

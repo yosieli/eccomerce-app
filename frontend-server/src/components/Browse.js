@@ -73,10 +73,8 @@ class Browse extends React.Component {
     }
     render(){
         return(
-            
                     <Row style = {{paddingLeft: '6%', marginRight: '0px', "background-color": "rgb(238,236,225)"}}>
                         {this.state.showingAllItems ? this.state.allItems.map( (item, index) =><BrowseCards item = {item} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>) : <ItemSpec browse = {this.state.browse} chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} addToFavorite = {this.addToFavorite}/>}
-
                     </Row>
            
         )
