@@ -55,6 +55,7 @@ class Signin extends React.Component{
       <img className="logo-s" align="top" src="logo.png" height="160" width="400" alt='rip'/>
         <div className="form">
           <form onSubmit={this.handleSubmit} className="login-form">
+
           <input name = "username" onChange={this.handleChange} type="name" placeholder="username"/>
            <input name = "password" onChange={this.handleChange} type="password" placeholder="password" />
            <button style={{"border-radius": "7px"}}onClick={(e) => this.handleSubmit(e)}>login</button>
