@@ -81,15 +81,15 @@ class Favorites extends React.Component {
 
     render(){
         return(
-            <div>
+           
             
 
-            <Row style = {{marginRight: '0px'}}>
+            <Row style = {{paddingLeft: '6%', marginRight: '0px', "background-color": "rgb(238,236,225)", height: '100vh'}}>
                 
                 {this.state.showingAllItems ? this.state.myFavorites.map( (item) =><Cards item = {item} addToCart = {this.addToCart} remove = {this.remove} handleShow = {this.handleShow}/>) : <ItemSpec chosenItem = {this.state.chosenItem} handleShow = {this.handleShow} addToCart = {this.addToCart} browse = {this.state.browse}/>}  
 
             </Row>
-            </div>
+           
         )
     }
 }
