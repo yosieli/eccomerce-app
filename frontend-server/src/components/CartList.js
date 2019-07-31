@@ -13,6 +13,7 @@ export default  class Cart  extends React.Component {
         total:0,
         buyItems: false
        
+       
     }
 
     componentDidMount(){
