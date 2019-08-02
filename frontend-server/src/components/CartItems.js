@@ -29,7 +29,7 @@ export default  class Cart  extends React.Component {
                         <Card.Text>
                             {"Price: $" + this.props.item.price}
                         </Card.Text>
-                        <Button onClick = {()=>this.props.removeItem(this.props.item)} variant="outline-danger" style = {{marginBottom: '5px' }}>Remove </Button>
+                        <Button onClick = {()=>this.props.removeItem(this.props.item)} variant="outline-danger" style = {{marginBottom: '5px', marginRight: '5px' }}>Remove </Button>
                         <Button onClick = {()=>this.props.buyItems(this.props.item)} variant="outline-primary" style = {{marginBottom: '5px' }}>Buy Item</Button>
                     </Card.Body>
                 </Card>

@@ -43,7 +43,7 @@ class Browse extends React.Component {
 
     addToCart = (item) => {
         console.log(item)
-        fetch(`http://localhost:3000/addToCart/${localStorage.getItem('user')}/${item.id}`,{
+        fetch(`http://localhost:3000/addToCart/${item.id}`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ class Browse extends React.Component {
     }
 
     addToFavorite = (item) => {
-        fetch(`http://localhost:3000/addToFavorites/${localStorage.getItem('user')}/${item.id}`,{
+        fetch(`http://localhost:3000/addToFavorites/${item.id}`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
