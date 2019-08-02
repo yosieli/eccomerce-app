@@ -14,8 +14,8 @@ class ApplicationController < ActionController::API
             payload = JWT.decode(token, 'agojngjn7r5326879r0ujngq0-203ru0hgf2j1-qw')[0]
 
             # payload, header = JWT.decode(token, '65bc368fbc69306')
-                                            
             @current_user = User.find(payload['id'])
+            puts @current_user                             
 
             if @current_user
                 return true
