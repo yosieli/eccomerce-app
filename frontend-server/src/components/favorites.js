@@ -14,7 +14,7 @@ class Favorites extends React.Component {
         browse: false
     }
     componentDidMount() {
-        fetch(`http://localhost:3000/favoriteItems/${localStorage.getItem('user')}`, {
+        fetch(`http://localhost:3000/favoriteItems`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ class Favorites extends React.Component {
 
     addToCart = (item) => {
   
-        fetch(`http://localhost:3000/addToCart/${localStorage.getItem('user')}/${item.item_id}`,{
+        fetch(`http://localhost:3000/addToCart/${item.item_id}`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ class Favorites extends React.Component {
     }
 
     remove = (item) => {
-        fetch(`http://localhost:3000/favoriteItems/${localStorage.getItem('user')}/${item.item_id}`,{
+        fetch(`http://localhost:3000/favoriteItems/${item.item_id}`,{
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',

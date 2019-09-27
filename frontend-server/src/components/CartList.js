@@ -19,7 +19,7 @@ export default  class Cart  extends React.Component {
     }
 
     componentDidMount(){
-        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+        fetch(`http://localhost:3000/cartItems`,{
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export default  class Cart  extends React.Component {
 
 
     removeItem = (item) => {
-        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}/${item.item_id}`,{
+        fetch(`http://localhost:3000/cartItems/${item.item_id}`,{
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export default  class Cart  extends React.Component {
 
 
     buySpecificItem = (item) => {
-        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}/${item.item_id}`,{
+        fetch(`http://localhost:3000/cartItems/${item.item_id}`,{
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ export default  class Cart  extends React.Component {
     }
 
     clearCart = () => {
-        fetch(`http://localhost:3000/cartItems/${localStorage.getItem('user')}`,{
+        fetch(`http://localhost:3000/cartItems`,{
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
@@ -122,7 +122,24 @@ export default  class Cart  extends React.Component {
     }
     render(){
      let items = this.state.myItems
-     let shown
+     let shown = (<div style = {{paddingLeft: '6%', "background-color": "rgb(238,236,225)", height: '100vh'}}>
+     <h3> My Cart items: ${this.state.total}</h3>
+     <h3><Button onClick={() => this.clearCart()}  variant="outline-danger" >Empty Cart</Button> </h3> 
+     
+     <Row >
+         {items.map(item => {
+             return(
+             <div>
+                 
+             <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} buyItems={this.buySpecificItem} /> 
+             </div> 
+             )
+         })}
+     </Row>
+         
+
+  </div>)
+
      console.log(this.state.buyItems)
     
      if(this.state.buyItems){
@@ -135,27 +152,7 @@ export default  class Cart  extends React.Component {
                     </div>
                 )
     }
-    else{
-       
-        shown = (<div style = {{paddingLeft: '6%', "background-color": "rgb(238,236,225)", height: '100vh'}}>
-            <h3> My Cart items: ${this.state.total}</h3>
-            <h3><Button onClick={() => this.clearCart()}  variant="outline-danger" >Empty Cart</Button> </h3> 
-            
-            <Row >
-                {items.map(item => {
-                    return(
-                    <div>
-                        
-                    <CartItems  item = {item}    clearCart={this.clearCart}  removeItem={this.removeItem} buyItems={this.buySpecificItem} /> 
-                    </div> 
-                    )
-                })}
-            </Row>
-                
-
-         </div>)
-
-    }
+    
      return(
         <div>
             {shown}
