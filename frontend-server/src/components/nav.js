@@ -22,7 +22,7 @@ const NavBar = withRouter((props) => (
         <Nav.Link href='/myFavorites'><strong> Favorites </strong></Nav.Link>
       </Nav>
 
-      <Nav.Link href = '/myCart'><img  style= {{height: '50px', transform: 'scaleX(-1)'}} src = "http://www.sclance.com/pngs/grocery-cart-png/grocery_cart_png_614332.png"/></Nav.Link>
+      <Nav.Link href = '/myCart'><img  style= {{height: '50px', transform: 'scaleX(-1)'}} src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4udiAOszoYPvgZG1KVmxQiN5ardCOY27LLTTR6cOwznW19Me"/></Nav.Link>
       <Nav>
         <Nav.Link onClick={() => {
           localStorage.clear()
