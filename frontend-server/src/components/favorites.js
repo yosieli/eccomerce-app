@@ -34,6 +34,7 @@ class Favorites extends React.Component {
             }
         })
     }
+    
     handleShow = (item) => {
         this.setState({
             showingAllItems: !this.state.showingAllItems,
